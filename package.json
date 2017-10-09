@@ -1,0 +1,25 @@
+{
+  "name": "js-goodies",
+  "version": "1.0.0",
+  "description": "Pure Javascript goodies without using any libraries Edit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naguibihab/js-goodies.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Naguib Ihab",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naguibihab/js-goodies/issues"
+  },
+  "homepage": "https://github.com/naguibihab/js-goodies#readme",
+  "dependencies": {
+    "lite-server": "^2.3.0"
+  }
+}

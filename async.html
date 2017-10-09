@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h1>
+			Async.html
+		</h1>
+		<h2>
+			Using Asynchronous functions through javascript directly without AJAX or JQuery
+		</h2>
+
+		<p>
+			Reference:
+			<a href="https://www.kirupa.com/html5/making_http_requests_js.htm" target="_blank">https://www.kirupa.com/html5/making_http_requests_js.htm</a>
+		</p>
+
+		<p>
+			Code:
+			<pre>
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', "//ipinfo.io/json", true);
+				xhr.send();
+				xhr.addEventListener("readystatechange", processRequest, false);
+
+				function processRequest(e) {
+					document.getElementById('readyState').innerHTML = JSON.stringify(xhr.readyState);
+					document.getElementById('status').innerHTML = JSON.stringify(xhr.status);
+					document.getElementById('responseText').innerHTML = JSON.stringify(xhr.responseText.replace(/\n/g,'&lt;br&gt;'));
+				}
+			</pre>
+		</p>
+
+		
+		<p>
+			Ready State
+			<pre id="readyState"></pre>
+			Status
+			<pre id="status"></pre>
+			Response Text (formatted):
+			<pre id="responseText"></pre>
+		</p>
+	</body>
+	<footer>
+		<script>
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', "//ipinfo.io/json", true);
+			xhr.send();
+			xhr.addEventListener("readystatechange", processRequest, false);
+
+			function processRequest(e) {
+				document.getElementById('readyState').innerHTML = JSON.stringify(xhr.readyState);
+				document.getElementById('status').innerHTML = JSON.stringify(xhr.status);
+				document.getElementById('responseText').innerHTML = JSON.stringify(xhr.responseText.replace(/\n/g,'<br>'));
+			}
+		</script>
+	</footer>
+</html>
