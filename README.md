@@ -8,3 +8,6 @@ This repo will contain all the "tough" tricks that most people don't realise can
 
 ## Prerequisites
 First run `npm install lite-server -g` to install lite-server and use it
+
+##### Good JS resources
+- https://www.toptal.com/javascript/interview-questions
