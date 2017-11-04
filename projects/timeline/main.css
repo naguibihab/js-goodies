@@ -29,10 +29,18 @@ body {
 }
 
 /* Timeline elements */
-.timeline ul li div {
+.timeline ul li div.content {
   position: relative;
   bottom: 0;
   width: 400px;
+  padding: 15px;
+  background: #fff;
+}
+
+.timeline ul li div.icon {
+  position: relative;
+  bottom: 0;
+  width: 140px;
   padding: 15px;
   background: #fff;
 }
@@ -46,27 +54,37 @@ body {
   border-style: solid;
 }
 
+.timeline .event-type {
+  font-weight: bold;
+  padding: 5px;
+}
+
+.timeline .event-icon {
+  font-size: 150%;
+}
+
+.timeline .event-time {
+  font-size: 80%;
+  left: 107px;
+  top: -9px;
+  position: relative;
+}
+
 /* Odd elements */
 .timeline ul li:nth-child(odd) div.content {
   left: 45px;
   box-shadow: 1px 1px 1px 1px #c3c3c3;
-}
-
-.timeline ul li:nth-child(odd) div.icon {
-  left: -465px;
-  box-shadow: 1px 1px 1px 1px #c3c3c3;
-}
-
-.timeline ul li:nth-child(odd) div.icon::before {
-  right: -16px;
-  border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #c3c3c3;
 }
  
 .timeline ul li:nth-child(odd) div.content::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
   border-color: transparent #c3c3c3 transparent transparent;
+}
+
+.timeline ul li:nth-child(odd) div.icon {
+  top: 160px;
+  left: -175px;
 }
 
 /* Even elements */
