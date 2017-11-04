@@ -10,7 +10,7 @@ This repo will contain all the "tough" tricks that most people don't realise can
 [Using asynchronous calls with pure javascript](snippets/async.html)
 
 ## Prerequisites
-First run `npm install lite-server -g` to install lite-server and use it
+First run `npm install lite-server -g` to install lite-server and use it by running `lite-server`
 
 ##### Good JS resources
 - https://www.toptal.com/javascript/interview-questions
