@@ -1,9 +1,21 @@
 body {
   font: normal 16px/1.5 "Helvetica Neue", sans-serif;
   background: #fbfbfc;
-  color: #3597d3;
+  color: #000;
   overflow-x: hidden;
   padding-bottom: 50px;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.ml-5 {
+  margin-left: 5px;
 }
 
 /* Timeline dots */
@@ -29,6 +41,7 @@ body {
 }
 
 /* Timeline elements */
+/* Parent elements */
 .timeline ul li div.content {
   position: relative;
   bottom: 0;
@@ -43,6 +56,7 @@ body {
   width: 140px;
   padding: 15px;
   background: #fff;
+  color: #3597d3;
 }
  
 .timeline ul li div.content::before {
@@ -54,30 +68,42 @@ body {
   border-style: solid;
 }
 
-.timeline .event-type {
+.timeline .container {
+  position: absolute;
+}
+
+/* Child elements */
+/* Icon */
+.timeline .icon .event-type {
   font-weight: bold;
   padding: 5px;
-  display: inline;
   line-height: 37px;
   position: relative;
 }
 
-.timeline .event-icon-time {
-  display: inline;
-  position: absolute;
-}
-
-.timeline .event-icon {
+.timeline .icon .event-icon {
   font-size: 150%;
-  display: inline-block;
 }
 
-.timeline .event-time {
+.timeline .icon .event-time {
   font-size: 80%;
   left: -6px;
   top: -6px;
   position: relative;
-  display: block;
+  color: #939598;
+}
+
+/* Content */
+.timeline .content .event-date .day-number {
+  font-size: 200%;
+}
+
+.timeline .content .event-date .month-year {
+  font-size: 80%;
+  left: -2px;
+  top: -6px;
+  position: relative;
+  color: #939598;
 }
 
 /* Odd elements */
