@@ -4,8 +4,9 @@ body {
   color: #3597d3;
   overflow-x: hidden;
   padding-bottom: 50px;
-}  
+}
 
+/* Timeline dots */
 .timeline ul li {
   list-style-type: none;
   position: relative;
@@ -25,4 +26,46 @@ body {
   height: 30px;
   border-radius: 50%;
   background: inherit;
+}
+
+/* Timeline elements */
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 15px;
+  background: #fff;
+}
+ 
+.timeline ul li div::before {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Odd elements */
+.timeline ul li:nth-child(odd) div {
+  left: 45px;
+  box-shadow: 1px 1px 1px 1px #c3c3c3;
+}
+ 
+.timeline ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #c3c3c3 transparent transparent;
+}
+
+/* Even elements */
+.timeline ul li:nth-child(even) div {
+  left: -465px;
+  box-shadow: 1px 1px 1px 1px #c3c3c3;
+}
+ 
+.timeline ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #c3c3c3;
 }
