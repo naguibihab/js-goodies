@@ -32,7 +32,6 @@ body {
   position: relative;
   width: 6px;
   margin: 0 auto;
-  padding-top: 50px;
   background: #3597d3;
 }
  
@@ -52,6 +51,7 @@ body {
 /* Parent elements */
 .timeline ul li div.content {
   position: relative;
+  top: 215px;
   bottom: 0;
   width: 400px;
   padding: 15px;
@@ -61,6 +61,7 @@ body {
 .timeline ul li div.icon {
   position: relative;
   bottom: 0;
+  top: 260px;
   width: 140px;
   padding: 15px;
   background: #fff;
@@ -69,16 +70,15 @@ body {
 .timeline ul li div.author {
   position: relative;
   bottom: 0;
+  top: 217px;
   width: 100px;
   background: #fff;
-  left: 386px;
-  top: 7px;
 }
  
 .timeline ul li div.content::before {
   content: '';
   position: absolute;
-  bottom: 7px;
+  top: 4px;
   width: 0;
   height: 0;
   border-style: solid;
@@ -133,8 +133,11 @@ body {
 }
 
 .timeline ul li:nth-child(odd) div.icon {
-  top: 160px;
   left: -175px;
+}
+
+.timeline ul li:nth-child(odd) div.author {
+  left: 384px;
 }
 
 /* Even elements */
@@ -150,10 +153,13 @@ body {
 }
 
 .timeline ul li:nth-child(even) div.icon {
-  top: 160px;
   left: 45px;
 }
 
 .timeline ul li:nth-child(even) div.icon .event-type {
   left: 20px;
+}
+
+.timeline ul li:nth-child(even) div.author {
+  left: -124px;
 }
