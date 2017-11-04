@@ -6,6 +6,9 @@ Since I started working with different javascript frameworks I became more relia
 
 This repo will contain all the "tough" tricks that most people don't realise cane be done in javascript.
 
+## Snippets
+[Using asynchronous calls with pure javascript](snippets/async.html)
+
 ## Prerequisites
 First run `npm install lite-server -g` to install lite-server and use it
 
