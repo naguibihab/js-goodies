@@ -18,6 +18,18 @@ body {
   margin-left: 5px;
 }
 
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
 .blue {
   color: #3597d3
 }
@@ -153,7 +165,7 @@ body {
 }
 
 .timeline ul li:nth-child(even) div.icon {
-  left: 45px;
+  left: 20px;
 }
 
 .timeline ul li:nth-child(even) div.icon .event-type {
