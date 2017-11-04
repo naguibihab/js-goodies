@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/naguibihab/js-goodies#readme",
   "dependencies": {
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "less": "^2.7.3"
   }
 }
