@@ -8,6 +8,7 @@ This repo will contain all the "tough" tricks that most people don't realise can
 
 ## Snippets
 [Using asynchronous calls with pure javascript](snippets/async.html)
+
 [Date related javascript functions](snippets/date.html)
 
 ## Prerequisites
