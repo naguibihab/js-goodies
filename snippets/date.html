@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h1>
+			Date.html
+		</h1>
+		<h2>
+			Some date related pure JS functionality
+		</h2>
+
+		<p>
+			Code:
+			<pre>
+
+			</pre>
+		</p>
+
+		
+		<p>
+			<form action="javascript:voide(0)" onsubmit="formatDate()">
+				<label for="inDate">Date</label>
+				<input id="inDate" type="date">
+				<label for="inTime">Time</label>
+				<input id="inTime" type="time">
+				<input type="submit">
+			</form>
+
+			<h4> Breaking down the date </h4>
+			Day Number: <pre id="outDayNumber"></pre>
+			Day Name: <pre id="outDayName"></pre>
+			Day Month: <pre id="outMonth"></pre>
+			Day Year: <pre id="outYear"></pre>
+
+			<h4> Combining date & time to construct a timestamp </h4>
+			Timestamp: <pre id="outTimestamp"></pre>
+		</p>
+	</body>
+	<footer>
+		<script>
+		// Setting default values
+		document.getElementById('inDate').valueAsDate = new Date();
+		document.getElementById('inTime').defaultValue = "09:00";
+		
+		var months = ["January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October", "November", "December"];
+var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var types = ['Appointment','Meeting'];
+
+		function formatDate(){
+			// Caputre inputs
+			var dateBreakdown = [];
+			var dateDOM = document.getElementById('inDate');
+			var date = new Date(dateDOM.value);
+			dateBreakdown.dayNumber = date.getUTCDate() < 10 ? '0'+date.getUTCDate() : date.getUTCDate();
+			dateBreakdown.dayName = days[date.getDay()];
+			dateBreakdown.month = months[date.getUTCMonth()];
+			dateBreakdown.year = date.getUTCFullYear();
+
+			var timeDOM = document.getElementById('inTime');
+			dateBreakdown.time = timeDOM.value;
+
+			dateBreakdown.timestamp = new Date(dateDOM.value + " " + dateBreakdown.time);
+
+			// Setting outputs
+			document.getElementById('outDayNumber').innerHTML = dateBreakdown.dayNumber;
+			document.getElementById('outDayName').innerHTML = dateBreakdown.dayName;
+			document.getElementById('outMonth').innerHTML = dateBreakdown.month;
+			document.getElementById('outYear').innerHTML = dateBreakdown.year;
+
+			document.getElementById('outTimestamp').innerHTML = dateBreakdown.timestamp;
+		}
+
+		formatDate();
+		</script>
+	</footer>
+</html>
