@@ -11,6 +11,8 @@ This repo will contain all the "tough" tricks that most people don't realise can
 
 [Date related javascript functions](snippets/date.html)
 
+[Posting data in JSON format](snippets/form.html)
+
 ## Prerequisites
 First run `npm install lite-server -g` to install lite-server and use it
 
