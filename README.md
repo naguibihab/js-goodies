@@ -20,3 +20,6 @@ First run `npm install lite-server -g` to install lite-server and use it
 
 ##### Good JS resources
 - https://www.toptal.com/javascript/interview-questions
+
+# URL
+Go to [https://naguibihab.github.io/js-goodies/] to view this repo as rendered HTML
