@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h1>
+			Arrays And Objects
+		</h1>
+		<h2>
+			The few differences between arrays and objects that shows when should Arrays be used and when should Objects be used
+		</h2>
+
+		<hr>
+		<h4> Length </h4>
+		<p>Determining the length of an Array is done by using .length, determining the length of an object however needs a different approach as we need to transform it into an array first by parsing the keys; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys">more details here</a></p>
+		<p>
+			Code:
+			<pre>
+				var myArr = [1,2,3,4,5];
+				var myObj = {
+					0: 1,
+					1: 2,
+					2: 3,
+					3: 4,
+					4: 5
+				};
+
+				console.log('Length() - myArr',myArr.length);
+				console.log('length() - myObj',Object.keys(myObj).length);
+			</pre>
+		</p>
+
+		<hr>
+		<h4> Index Pushing </h4>
+		<p>If we want to add data directly to specific indexes in our array that will mess up the length of that array, objects however are able to handle that well enough</p>
+		<p>
+			Code: 
+			<pre>
+				var myArr = [];
+				var myObj = {};
+
+				myArr[0] = 'something';
+				myArr[5] = 'something else';
+				// myArr.length should be 2 but instead it's actually 6 as it automatically adds 4 empty cells
+				console.log('indexPushing() - myArr',myArr,myArr.length);
+
+				myObj[0] = 'something';
+				myObj[5] = 'something else';
+				// That's the same as writing
+				/*
+					myObj = {
+						0: 'something',
+						5: 'something else';
+					}
+				*/
+				console.log('indexPushing() - myObj',myObj,Object.keys(myObj).length);				
+			</pre>
+		</p>
+
+		<hr>
+		<h4> Associative Indexes </h4>
+		<p>When using associatives with arrays, the array's length doesn't pick those up as it only counts the numerical indexes, objects, however, because they are transformed into an array using their keys they are transformed into a numerical array and thus the length works</p>
+		<p>
+			Code: 
+			<pre>
+				var myArr = [];
+				var myObj = {};
+
+				myArr['assoc1'] = 'something';
+				myArr['assoc2'] = 'something else';
+				// Because the length of an array is calculated by its numerical indexes the length of this array will be 0
+				console.log('associativeIndexes() - myArr',myArr,myArr.length);
+
+				myObj['assoc1'] = 'something';
+				myObj['assoc2'] = 'something else';
+				console.log('associativeIndexes() - myObj',myObj,Object.keys(myObj),Object.keys(myObj).length);
+			</pre>
+		</p>
+
+		<hr>
+		<h4> Looping </h4>
+		<p>Using a forEach loop on an associative array wouldn't work, however, with an object that got transformed into an array of keys it would</p>
+		<p>
+			Code: 
+			<pre>
+				var myArrIndex = [1,2,3,4,5];
+				var myArrAssoc = [];
+				myArrAssoc['assoc1'] = 'something';
+				myArrAssoc['assoc2'] = 'something else';
+				var myObj = {
+					0: 1,
+					1: 2,
+					myassoc1: 3,
+					3: 4,
+					4: 5,
+					myassoc2: 'something'
+				};
+
+				// This will work
+				myArrIndex.forEach(function(value){
+					console.log('looping() - myArrIndex',value);
+				});
+
+				// This won't work
+				myArrAssoc.forEach(function(value){
+					console.log('looping() - myArrAssoc',value);
+				});
+
+				Object.keys(myObj).forEach(function(key){
+					console.log('looping() - myObj',myObj[key]);
+				});
+			</pre>
+		</p>
+	</body>
+	<script>
+
+		function length(){
+			var myArr = [1,2,3,4,5];
+			var myObj = {
+				0: 1,
+				1: 2,
+				2: 3,
+				3: 4,
+				4: 5
+			};
+
+			console.log('Length() - myArr',myArr.length);
+			console.log('length() - myObj',Object.keys(myObj).length);
+		}
+		length();
+
+		function indexPushing(){
+			var myArr = [];
+			var myObj = {};
+
+			myArr[0] = 'something';
+			myArr[5] = 'something else';
+			// myArr.length should be 2 but instead it's actually 6 as it automatically adds 4 empty cells
+			console.log('indexPushing() - myArr',myArr,myArr.length);
+
+			myObj[0] = 'something';
+			myObj[5] = 'something else';
+			// That's the same as writing
+			/*
+				myObj = {
+					0: 'something',
+					5: 'something else';
+				}
+			*/
+			console.log('indexPushing() - myObj',myObj,Object.keys(myObj).length);
+		}
+		indexPushing();
+
+		function associativeIndexes(){
+			var myArr = [];
+			var myObj = {};
+
+			myArr['assoc1'] = 'something';
+			myArr['assoc2'] = 'something else';
+			// Because the length of an array is calculated by its numerical indexes the length of this array will be 0
+			console.log('associativeIndexes() - myArr',myArr,myArr.length);
+
+			myObj['assoc1'] = 'something';
+			myObj['assoc2'] = 'something else';
+			console.log('associativeIndexes() - myObj',myObj,Object.keys(myObj),Object.keys(myObj).length);
+		}
+		associativeIndexes();
+
+		function looping(){
+			var myArrIndex = [1,2,3,4,5];
+			var myArrAssoc = [];
+			myArrAssoc['assoc1'] = 'something';
+			myArrAssoc['assoc2'] = 'something else';
+			var myObj = {
+				0: 1,
+				1: 2,
+				myassoc1: 3,
+				3: 4,
+				4: 5,
+				myassoc2: 'something'
+			};
+
+			// This will work
+			myArrIndex.forEach(function(value){
+				console.log('looping() - myArrIndex',value);
+			});
+
+			// This won't work
+			myArrAssoc.forEach(function(value){
+				console.log('looping() - myArrAssoc',value);
+			});
+
+			Object.keys(myObj).forEach(function(key){
+				console.log('looping() - myObj',myObj[key]);
+			});
+		}
+		looping();
+	</script>
+</html>

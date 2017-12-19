@@ -13,6 +13,8 @@ This repo will contain all the "tough" tricks that most people don't realise can
 
 [Posting data in JSON format](snippets/form.html)
 
+[Differences between Arrays and Objects](snippets/arrays-and-objects.html)
+
 ## Prerequisites
 First run `npm install lite-server -g` to install lite-server and use it
 
