@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>
+		DateTime JS to GoLang
+	</h1>
+	<h2>
+		Transforming standard JS DateTime format to GoLang format
+	</h2>
+	<p>
+		This script translates the date from the standard dd/mm/yyyy to a <a href="https://stackoverflow.com/a/20234207/830230">format that go lang can understand</a>
+	</p>
+	<p>
+		Code:
+		<pre>
+			const formats = [
+				{
+					'desc': 'two digit year',
+					'stdformat': 'yy',
+					'goformat': '06',
+					'reg': '(?&lt;!y)yy(?!y)',
+				},
+				{
+					'desc': 'four digit year',
+					'stdformat': 'yyyy',
+					'goformat': '2006',
+					'reg': 'yyyy'
+				},
+				{
+					'desc': 'single digit month',
+					'stdformat': 'M',
+					'goformat': '1',
+					'reg': '(?&lt;!M)M(?!M)' 
+				},
+				{
+					'desc': 'two digit month',
+					'stdformat': 'MM' ,
+					'goformat': '01',
+					'reg': 'MM'
+				},
+				{
+					'desc': 'single digit day',
+					'stdformat': 'd',
+					'goformat': '2',
+					'reg': '(?&lt;!d)d(?!d)'
+				},
+				{
+					'desc': 'two digit day',
+					'stdformat': 'dd',
+					'goformat': '02',
+					'reg': 'dd'
+				},
+				{
+					'desc': 'single digit 12 hour',
+					'stdformat': 'h',
+					'goformat': '2',
+					'reg': '(?&lt;!h)h(?!h)'
+				},
+				{
+					'desc': 'two digit 12 hour',
+					'stdformat': 'hh',
+					'goformat': '02',
+					'reg': 'hh'
+				},
+				{
+					'desc': 'two digit 24 hour',
+					'stdformat': 'HH',
+					'goformat': '15',
+					'reg': 'HH'
+				},
+				{
+					'desc': 'single digit minute',
+					'stdformat': 'm',
+					'goformat': '4',
+					'reg': '(?&lt;!m)m(?!m)'
+				},
+				{
+					'desc': 'two digit minute',
+					'stdformat': 'mm',
+					'goformat': '04',
+					'reg': 'mm'
+				},
+				{
+					'desc': 'single digit second',
+					'stdformat': 's',
+					'goformat': '5',
+					'reg': '(?&lt;!s)s(?!s)'
+				},
+				{
+					'desc': 'two digit second',
+					'stdformat': 'ss',
+					'goformat': '05',
+					'reg': 'ss'
+				}
+			];
+
+		// Formats date from a dmy to a format that golang understands
+		function formatDate(date) {
+			
+			// Query over the date string and check if it has any of the formats that we have
+			console.log('date',date);
+			formats.forEach(function(format){
+				console.log('Iterating on format',format);
+
+				let re = new RegExp(format.reg);
+				let match = date.match(re);
+
+				console.log('match result',match);
+
+				if(match) {
+					// Replace with golang format
+					date = date.replace(format.stdformat,format.goformat);
+					console.log('new date',date);
+				}
+
+			});
+			
+			return date;
+		}
+		</pre>
+	</p>
+	Standard formatted: <input id="input-date" type="text" value="dd/MM/yyyy - hh:mm:ss"/>
+	<br/>
+	GoLang formatted: <span id="output-date"></span>
+	<br/>
+	<button onclick="formatDateHelper()">Format</button>
+</body>
+<footer>
+	<script>
+		const formats = [
+			{
+				'desc': 'two digit year',
+				'stdformat': 'yy',
+				'goformat': '06',
+				'reg': '(?<!y)yy(?!y)',
+			},
+			{
+				'desc': 'four digit year',
+				'stdformat': 'yyyy',
+				'goformat': '2006',
+				'reg': 'yyyy'
+			},
+			{
+				'desc': 'single digit month',
+				'stdformat': 'M',
+				'goformat': '1',
+				'reg': '(?<!M)M(?!M)' 
+			},
+			{
+				'desc': 'two digit month',
+				'stdformat': 'MM' ,
+				'goformat': '01',
+				'reg': 'MM'
+			},
+			{
+				'desc': 'single digit day',
+				'stdformat': 'd',
+				'goformat': '2',
+				'reg': '(?<!d)d(?!d)'
+			},
+			{
+				'desc': 'two digit day',
+				'stdformat': 'dd',
+				'goformat': '02',
+				'reg': 'dd'
+			},
+			{
+				'desc': 'single digit 12 hour',
+				'stdformat': 'h',
+				'goformat': '2',
+				'reg': '(?<!h)h(?!h)'
+			},
+			{
+				'desc': 'two digit 12 hour',
+				'stdformat': 'hh',
+				'goformat': '02',
+				'reg': 'hh'
+			},
+			{
+				'desc': 'two digit 24 hour',
+				'stdformat': 'HH',
+				'goformat': '15',
+				'reg': 'HH'
+			},
+			{
+				'desc': 'single digit minute',
+				'stdformat': 'm',
+				'goformat': '4',
+				'reg': '(?<!m)m(?!m)'
+			},
+			{
+				'desc': 'two digit minute',
+				'stdformat': 'mm',
+				'goformat': '04',
+				'reg': 'mm'
+			},
+			{
+				'desc': 'single digit second',
+				'stdformat': 's',
+				'goformat': '5',
+				'reg': '(?<!s)s(?!s)'
+			},
+			{
+				'desc': 'two digit second',
+				'stdformat': 'ss',
+				'goformat': '05',
+				'reg': 'ss'
+			}
+		];
+
+		// Formats date from a dmy to a format that golang understands
+		function formatDate(date) {
+			
+			// Query over the date string and check if it has any of the formats that we have
+			console.log('date',date);
+			formats.forEach(function(format){
+				console.log('Iterating on format',format);
+
+				let re = new RegExp(format.reg);
+				let match = date.match(re);
+
+				console.log('match result',match);
+
+				if(match) {
+					// Replace with golang format
+					date = date.replace(format.stdformat,format.goformat);
+					console.log('new date',date);
+				}
+
+			});
+			
+			return date;
+		}
+
+		function formatDateHelper(){
+			let inputDate = document.getElementById('input-date').value;
+			let outputDate = formatDate(inputDate);
+			document.getElementById('output-date').innerHTML = outputDate;
+		}
+
+		formatDateHelper();
+
+	</script>
+</footer>
+</html>

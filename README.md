@@ -16,7 +16,10 @@ This repo will contain all the "tough" tricks that most people don't realise can
 [Differences between Arrays and Objects](snippets/arrays-and-objects.html)
 
 ## Prerequisites
-First run `npm install lite-server -g` to install lite-server and use it
+First run `npm install lite-server -g` to install lite-server and use it.
+Then run `lite-server` while on the root directory to start a server
+
+If you have an issue with lite-server refreshing the browser, make sure that you have a proper html file: it should have the `<!DOCTYPE html>`, `<html>`, `<body>`, `<footer>` tags
 
 ##### Good JS resources
 - https://www.toptal.com/javascript/interview-questions
