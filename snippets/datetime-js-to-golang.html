@@ -94,29 +94,29 @@
 				}
 			];
 
-		// Formats date from a dmy to a format that golang understands
-		function formatDate(date) {
-			
-			// Query over the date string and check if it has any of the formats that we have
-			console.log('date',date);
-			formats.forEach(function(format){
-				console.log('Iterating on format',format);
+			// Formats date from a dmy to a format that golang understands
+			function formatDate(date) {
+				
+				// Query over the date string and check if it has any of the formats that we have
+				console.log('date',date);
+				formats.forEach(function(format){
+					console.log('Iterating on format',format);
 
-				let re = new RegExp(format.reg);
-				let match = date.match(re);
+					let re = new RegExp(format.reg);
+					let match = date.match(re);
 
-				console.log('match result',match);
+					console.log('match result',match);
 
-				if(match) {
-					// Replace with golang format
-					date = date.replace(format.stdformat,format.goformat);
-					console.log('new date',date);
-				}
+					if(match) {
+						// Replace with golang format
+						date = date.replace(format.stdformat,format.goformat);
+						console.log('new date',date);
+					}
 
-			});
-			
-			return date;
-		}
+				});
+				
+				return date;
+			}
 		</pre>
 	</p>
 	Standard formatted: <input id="input-date" type="text" value="dd/MM/yyyy - hh:mm:ss"/>
