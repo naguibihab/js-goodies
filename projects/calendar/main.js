@@ -5,13 +5,13 @@ var Cal = function(divId) {
 
   // Days of week, starting on Sunday
   this.DaysOfWeek = [
-    'Sun',
     'Mon',
     'Tue',
     'Wed',
     'Thu',
     'Fri',
-    'Sat'
+    'Sat',
+    'Sun'
   ];
 
   // Months, stating on January
@@ -60,7 +60,7 @@ Cal.prototype.showMonth = function(y, m) {
 
   var d = new Date()
   // First day of the week in the selected month
-  , firstDayOfMonth = new Date(y, m, 1).getDay()
+  , firstDayOfMonth = 6
   // Last day of the selected month
   , lastDateOfMonth =  new Date(y, m+1, 0).getDate()
   // Last day of the previous month
@@ -88,11 +88,11 @@ Cal.prototype.showMonth = function(y, m) {
 
     var dow = new Date(y, m, i).getDay();
 
-    // If Sunday, start new row
-    if ( dow == 0 ) {
+    // If Monday, start new row
+    if ( dow == 1 ) {
       html += '<tr>';
     }
-    // If not Sunday but first day of the month
+    // If not Monday but first day of the month
     // it will write the last days from the previous month
     else if ( i == 1 ) {
       html += '<tr>';
@@ -112,15 +112,15 @@ Cal.prototype.showMonth = function(y, m) {
     } else {
       html += '<td class="normal">' + i + '</td>';
     }
-    // If Saturday, closes the row
-    if ( dow == 6 ) {
+    // If Sunday, closes the row
+    if ( dow == 0 ) {
       html += '</tr>';
     }
     // If not Saturday, but last day of the selected month
     // it will write the next few days from the next month
     else if ( i == lastDateOfMonth ) {
       var k=1;
-      for(dow; dow < 6; dow++) {
+      for(dow; dow < 7; dow++) {
         html += '<td class="not-current">' + k + '</td>';
         k++;
       }
@@ -140,7 +140,7 @@ Cal.prototype.showMonth = function(y, m) {
 window.onload = function() {
 
   // Start calendar
-  var c = new Cal("divCal");			
+  var c = new Cal("divCal");      
   c.showcurr();
 
   // Bind next and previous button clicks
